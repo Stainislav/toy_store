@@ -1,8 +1,0 @@
-from django.conf.urls import url
-from product.views import index
-
-urlpatterns = [
-    url(r'^main/$', index, name='index'),
-    #url(r'^organizations/$'
-]
-
