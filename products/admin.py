@@ -6,13 +6,13 @@ from products.models import Category
 
 
 # Категория.
-class CategoryAdmin(Category):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_filter = ['id', 'name']
     search_fields = ['id', 'name']
 
-#    class Meta:
- #       model = Category
+    class Meta:
+        model = Category
 
 '''
 # Товар.
@@ -37,5 +37,5 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductImage, ProductImageAdmin)
 
 '''
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
 
