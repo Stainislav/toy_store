@@ -1,4 +1,5 @@
 # Password for pythonanywhere.com: 'pavel1992'
+
 import os
 
 from django.core.wsgi import get_wsgi_application
