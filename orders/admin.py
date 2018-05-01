@@ -17,9 +17,9 @@ class StatusAdmin(admin.ModelAdmin):
 
 # Заказ.
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
-    list_filter = ['id', 'name']
-    search_fields = ['id', 'name']
+    list_display = ['id', 'customer_name']
+    list_filter = ['id', 'customer_name']
+    search_fields = ['id', 'customer_name']
 
     class Meta:
         model = Order
@@ -27,9 +27,9 @@ class OrderAdmin(admin.ModelAdmin):
 
 # Товар в заказе.
 class ProductInOrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
-    list_filter = ['id', 'name']
-    search_fields = ['id', 'name']
+    list_display = ['id']
+    list_filter = ['id']
+    search_fields = ['id']
 
     class Meta:
         model = ProductInOrder
