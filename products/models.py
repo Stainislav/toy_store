@@ -17,6 +17,8 @@ from django.db import models
 class Category(models.Model):
 
     name = models.CharField(max_length=50)
+    #parent = models.CharField(max_length=50, default=None, blank=True, null=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='child')
 
     def __str__(self):
         return self.name
