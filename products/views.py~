@@ -3,5 +3,5 @@ from products.models import Product, ProductImage
 
 
 def index(request):
-    products = ProductImage.objects.filter(is_active=True)
+    products_images = ProductImage.objects.filter(is_active=True)
     return render(request, "base.html", locals())
