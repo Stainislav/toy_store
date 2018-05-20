@@ -18,7 +18,7 @@ class CategoryAdmin(admin.ModelAdmin):
 # Товар.
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'description']
-    list_filter = ['id', 'name', 'description']
+    list_filter = ['id', 'name', 'description', 'category']
     search_fields = ['id', 'name', 'description']
 
     class Meta:
