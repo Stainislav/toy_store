@@ -2,7 +2,7 @@ from django.shortcuts import render
 from products.models import Product, ProductImage, Category
 
 
-def index(request):
+def home(request):
     products_images = ProductImage.objects.filter(is_active=True)
 
     parent_names = Category.objects.filter(parent__name=None)
@@ -23,5 +23,5 @@ def index(request):
     girl_new_toys_images = toys_for_girl_images.filter(product__new=True)
     special_for_you_toys_images = products_images.filter(product__category__name="Специально для вас")
 
-    return render(request, "base.html", locals())
+    return render(request, "home.html", locals())
 
