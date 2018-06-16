@@ -5,7 +5,7 @@ from django.db import models
 from orders.models import Status, Order, ProductInOrder
 
 
-# Статус заказа.
+# Order status.
 class StatusAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_filter = ['id', 'name']
@@ -15,7 +15,7 @@ class StatusAdmin(admin.ModelAdmin):
         model = Status
 
 
-# Заказ.
+# Order.
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'customer_name']
     list_filter = ['id', 'customer_name']
@@ -25,7 +25,7 @@ class OrderAdmin(admin.ModelAdmin):
         model = Order
 
 
-# Товар в заказе.
+# Product in order.
 class ProductInOrderAdmin(admin.ModelAdmin):
     list_display = ['id']
     list_filter = ['id']
