@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from products.models import Product, ProductImage, Category
 
-
+# Some comment for checking.
 def home(request):
 
     # Categories to show.
