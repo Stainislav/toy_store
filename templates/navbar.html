@@ -74,7 +74,8 @@
                                                 {% endfor %}
                                             {% endblock %}
 										</ul>
-									</div>
+                                    </div>
+							    </div>
 							</div>
 						</li>
 
@@ -88,28 +89,47 @@
 												<h3 class="list-links-title">Категории</h3></li>
                                                 {% block new_toys %}   
                                                 {% for toy in new_toys %}
-                                                    <li><a href="#">{{toy}}</a></li>
+                                                   <li><a href="#">{{toy}}</a></li>
                                                 {% endfor %}
                                             {% endblock %}
 										</ul>	
 									</div>
+                                </div>
 							</div>
 						</li>
-                        
-                        <li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Специально для вас<i class="fa fa-angle-right"></i></a>
+                      
+                        <li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Детские книги<i class="fa fa-angle-right"></i></a>
 							<div class="custom-menu">
 								<div class="row">
 									<div class="col-md-4">
 										<ul class="list-links">
 											<li>
 												<h3 class="list-links-title">Категории</h3></li>
-                                                {% block special_for_you_toys %}   
-                                                {% for toy in special_for_you_toys %}
-                                                    <li><a href="#">{{toy}}</a></li>
+                                                {% block children_books %}   
+                                                {% for book in children_books %}
+                                                    <li><a href="#">{{book}}</a></li>
                                                 {% endfor %}
                                             {% endblock %}
 										</ul>	
 									</div>
+							</div>
+						</li>
+
+                        <li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Гелиевые шары<i class="fa fa-angle-right"></i></a>
+							<div class="custom-menu">
+								<div class="row">
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Категории</h3></li>
+                                                {% block hellium_balls %}   
+                                                        {% for ball in hellium_balls %}   
+                                                        <li><a href="#">{{ball}}</a>
+                                                        {% endfor %}
+                                                {% endblock %}
+										</ul>
+                                    </div>
+							    </div>
 							</div>
 						</li>
 
