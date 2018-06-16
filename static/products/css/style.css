@@ -902,6 +902,7 @@ textarea.input {
 .product.product-single .product-thumb {
   position: relative;
   margin-bottom: 15px;
+  height: 475px;
 }
 
 .product.product-single .product-thumb>img {
@@ -964,7 +965,11 @@ textarea.input {
 }
 
 .product.product-single .product-body {
-  padding: 15px;
+  padding: 2px;
+  position: absolute;
+  bottom: 33px;
+  width: 234px;
+  height: 120px;
 }
 
 .product.product-single .product-price {
