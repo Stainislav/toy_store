@@ -5,6 +5,11 @@ from django.db import models
 from products.models import Category, Product, ProductImage
 
 
+# Inline class for image of a product.
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    extra = 0
+
 # Категория.
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
@@ -20,6 +25,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'description']
     list_filter = ['id', 'name', 'description', 'category']
     search_fields = ['id', 'name', 'description']
+
+    inlines = [ProductImageInline]    
 
     class Meta:
         model = Product

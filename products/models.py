@@ -40,6 +40,7 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='products_images/', blank=True)
+    is_main = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     
     def __str__(self):
