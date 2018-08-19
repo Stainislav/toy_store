@@ -52,7 +52,7 @@
 					</div>
 					<!-- /Logo -->
 
-					<!-- Search
+					<!-- Search -->
 					<div class="header-search">
 						<form>
 							<input class="input search-input" type="text" placeholder="Поиск">
@@ -65,12 +65,7 @@
 						</form>
 					</div>
 					<!-- /Search -->
-
-
 				</div>
-
-
-
 				<div class="pull-right">
 					<ul class="header-btns">
 

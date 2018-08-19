@@ -1,0 +1,29 @@
+data:  <QueryDict: {'product_id': ['85'], 'number': ['0'], 'csrfmiddlewaretoken': ['KxvZh2NqH5EWO2pz72khd8OZq45CXZUQwZdhRkw1s4N2pkTze10rhnvQtoWAFJom'], 'is_delete': ['true']}>
+
+data:  <QueryDict: {'number': ['0'], 'csrfmiddlewaretoken': ['KxvZh2NqH5EWO2pz72khd8OZq45CXZUQwZdhRkw1s4N2pkTze10rhnvQtoWAFJom'], 'is_delete': ['true']}>
+
+is_delete:  true
+product_id:  None
+
+
+
+
+session_key 2hwfpmdgc02673vac7nejmib4mknujhg
+
+data:  <QueryDict: {'product_id': ['86'], 'number': ['0'], 'csrfmiddlewaretoken': ['24nMOabeRXCRBlQQc4e6Q478J9OjKZuFOw54osUPCWLXcDkQj3UgUjOZMtFhsJYb'], 'is_delete': ['true']}>
+is_delete:  true
+product_id:  86
+
+
+session_key 2hwfpmdgc02673vac7nejmib4mknujhg
+
+data:  <QueryDict: {'number': ['0'], 'csrfmiddlewaretoken': ['5IeNuMZqGFtZsEHVrMRP93mbgXOB2RgJRaW544I1rEC53WbVyLxZdi32jhFzKBKf'], 'is_delete': ['true']}>
+is_delete:  true
+product_id:  None
+
+
+
+
+
+<button class="cancel-btn"><i class="fa fa-trash" data-product_id="{{product_in_basket.id}}"></i></button>
+<button class="cancel-btn"><i class="fa fa-trash" data-product_id="' + v.id + '            ></i></button></li></div>');

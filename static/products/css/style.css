@@ -510,8 +510,8 @@ textarea.input {
 }
 
 .category-nav.show-on-click .category-list {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   -webkit-transform: translate(0px, 15px);
   -ms-transform: translate(0px, 15px);
   transform: translate(0px, 15px);

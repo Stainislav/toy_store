@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 from django.db import models
-from orders.models import Status, Order, ProductInOrder
+from orders.models import Status, Order, ProductInOrder, ProductInBasket
 
 
 # Order status.
@@ -17,7 +17,7 @@ class StatusAdmin(admin.ModelAdmin):
 
 # Order.
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'customer_name']
+    list_display = ['id', 'customer_name', 'customer_phone', 'customer_email', 'user']
     list_filter = ['id', 'customer_name']
     search_fields = ['id', 'customer_name']
 
@@ -27,7 +27,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 # Product in order.
 class ProductInOrderAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'order']
     list_filter = ['id']
     search_fields = ['id']
 
@@ -35,7 +35,17 @@ class ProductInOrderAdmin(admin.ModelAdmin):
         model = ProductInOrder
 
 
+# Product in basket.
+class ProductInBasketAdmin(admin.ModelAdmin):
+    list_display = ['id', 'number', 'price_per_item', 'total_price', 'product', 'is_active']
+    list_filter = ['id']
+    search_fields = ['id']
+
+    class Meta:
+        model = ProductInBasket
+
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(ProductInOrder, ProductInOrderAdmin)
+admin.site.register(ProductInBasket, ProductInBasketAdmin)
 
