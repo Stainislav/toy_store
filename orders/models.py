@@ -75,7 +75,7 @@ class ProductInBasket(models.Model):
 
     session_key = models.CharField(max_length=128, blank=True, null=True, default=None)
     order     = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, null=True, default=None)
-    product   = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)     
+    product   = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)    
     created   = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated   = models.DateTimeField(auto_now_add=False, auto_now=True)
     is_active = models.BooleanField(default=True)
@@ -88,6 +88,7 @@ class ProductInBasket(models.Model):
         verbose_name_plural = "Товары в корзине"
 
     def save(self, *args, **kwargs):
+        print("self.product.price: ", self.product.price)
         price_per_item = self.product.price
         self.price_per_item = price_per_item
         self.total_price = int(self.number) * price_per_item

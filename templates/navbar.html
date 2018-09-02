@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!-- NAVIGATION -->
 	<div id="navigation">
 
@@ -124,10 +125,10 @@
 					<span class="menu-header">Menu<i class="fa fa-bars"></i></span>
 					<ul class="menu-list">
 						<li><a href="#"></a></li>
-						<li><a href="#">О нас</a></li>
-                        <li><a href="#">Условия доставки</a></li>
-                        <li><a href="#">Адреса магазинов</a></li>
-                        <li><a href="#">Возврат</a></li>
+						<li><a href="{% url 'about' %}">О нас</a></li>
+                        <li><a href="{% url 'delivery' %}">Условия доставки</a></li>
+                        <li><a href="{% url 'adress' %}">Адреса магазинов</a></li>
+                        <li><a href="{% url 'refund' %}">Возврат</a></li>
 					</ul>
 				</div>
 				<!-- menu nav -->

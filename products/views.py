@@ -19,7 +19,7 @@ def home(request):
     stuffed_toys_images = product_images.filter(product__category__parent__name="Мягкие игрушки")
     boy_toys_images     = product_images.filter(product__category__parent__name="Игрушки для мальчиков")
     girl_toys_images    = product_images.filter(product__category__parent__name="Игрушки для девочек")
-    
+    special_for_you_images    = product_images.filter(product__special_for_you=True)    
 
     return render(request, "home.html", locals())
 

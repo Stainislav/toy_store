@@ -8,16 +8,13 @@ from .models import *
 
 def basket_adding(request):
     return_dict = dict()
-    
+    print("REQUEST: ", request)
     session_key = request.session.session_key
-    print('session_key', session_key)
     data = request.POST
-    print('data: ', data)
     product_id = data.get("product_id")
     number = data.get("number")
     is_delete = data.get("is_delete")
-    print("is_delete: ", is_delete)
-    print("product_id: ", product_id)
+
 
     if is_delete == 'true':
         ProductInBasket.objects.filter(id=product_id).update(is_active=False)
@@ -76,5 +73,5 @@ def checkout(request):
         else:
             print("no")
     return render(request, 'checkout.html', locals())
-    
+
 

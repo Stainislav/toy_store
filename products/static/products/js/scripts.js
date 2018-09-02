@@ -1,11 +1,41 @@
 $(document).ready(function() {
-    
+ 
+    data_product_id = document.getElementsByClassName(".submit_btn");
+    console.log("DATA_PRODUCT_ID: ", data_product_id);
+
+
+    for (var i = 0; i < data_product_id.length; i++) {
+        console.log(data_product_id[i]);
+    }
+
+
+
+
+
+    get_id_using_query_selector = document.querySelectorAll('#id');
+    console.log("get_id_using_query_selector", get_id_using_query_selector);
+    //l = data_product_id.length;
+    //console.log("LENGTH: ", l);
+    //for (i = 0; i < 10; i++) {
+      //console.log("DATA: ", data_product_id[i]);
+     // console.log("HELLO DATA");       
+   // }
+
+
+    //test.on('submit', function(e) {
+      //  e.preventDefault();
+        //var add_to_cart = $('.primary-btn add-to-cart');
+        //console.log("ADD_TO_CART_CLASS: ", add_to_cart);
+        //console.log("PRODUCT_ID: ", product_id);
+    //});
+
     var form = $('#form_buying_product');
-    
+
     function basketUpdating(product_id, number, is_delete) {
         var data = {};
         data.product_id = product_id;
         data.number = number;
+        
         var csrf_token = $('#form_buying_product [name="csrfmiddlewaretoken"]').val();
         data["csrfmiddlewaretoken"] = csrf_token;
         
@@ -30,6 +60,7 @@ $(document).ready(function() {
                  }
              },
              error: function() {
+                 console.log("NUMBER", data.number);
                  console.log("the error");
              }
         });
@@ -41,6 +72,10 @@ $(document).ready(function() {
         e.preventDefault();
         
         var number = $('#number').val();
+        console.log("NUMBER ON SUBMIT", number);
+        if (number == null) {
+            number = 1;    
+        }
         var submit_btn = $('#submit_btn');
         var product_id = submit_btn.data('product_id');
         var product_name = submit_btn.data('product_name');
@@ -69,9 +104,13 @@ $(document).ready(function() {
      });
 
          function calculatingBasketAmount() {
-            var total_order_amount = 0
+            var total_order_amount = 0;
+            var shipping = 300;
             $('.total-product-in-basket-amount').each(function() {
                 total_order_amount += parseFloat($(this).text());
+                $("#sub-total_amount").text(total_order_amount);
+                total_order_amount += shipping;
+                $('#shipping').text(shipping);
             });
             $('#total_order_amount').text(total_order_amount.toFixed(2));
          }; 

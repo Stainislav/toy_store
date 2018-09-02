@@ -5,6 +5,13 @@ from django.db import models
 from orders.models import Status, Order, ProductInOrder, ProductInBasket
 
 
+
+# Inline class for image of a product.
+class ProductInOrderInline(admin.TabularInline):
+    model = ProductInOrder
+    extra = 0
+
+
 # Order status.
 class StatusAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
@@ -20,6 +27,8 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'customer_name', 'customer_phone', 'customer_email', 'user']
     list_filter = ['id', 'customer_name']
     search_fields = ['id', 'customer_name']
+
+    inlines = [ProductInOrderInline]
 
     class Meta:
         model = Order

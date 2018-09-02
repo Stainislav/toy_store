@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # Third-party apps.
     'products',
     'orders',
+    'info',
 ]
 
 MIDDLEWARE = [

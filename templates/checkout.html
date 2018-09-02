@@ -14,7 +14,7 @@
 		<div class="container">
 			<ul class="breadcrumb">
 				<li><a href="{% url 'home' %}">Главная</a></li>
-			    <li><a href="#">Оформление заказа</a></li>
+                <li class="active">Оформление заказа</li>
 			</ul>
 		</div>
 	</div>
@@ -116,17 +116,17 @@
 									<tr>
 										<th class="empty" colspan="3"></th>
 										<th>Промежуточный итог</th>
-										<th colspan="2" class="sub-total"><span id="total_order_amount"></th>
+										<th colspan="2" class="sub-total" id="sub-total_amount"></th>
 									</tr>
 									<tr>
 										<th class="empty" colspan="3"></th>
 										<th>Доставка</th>
-										<td colspan="2">Free Shipping</td>
+										<td colspan="2" id="shipping"></td>
 									</tr>
 									<tr>
 										<th class="empty" colspan="3"></th>
 										<th>Итоговая стоимость</th>
-										<th colspan="2" class="total"></span></th>
+										<th id="total_order_amount" colspan="2" class="total"></th>
 									</tr>
 								</tfoot>
 							</table>
@@ -137,7 +137,7 @@
 					</div>
 				</form>
 			</div>
-			<!-- /row -->
+			<!-- /row -->                
             {% else %}  <h3>В вашей корзине нет товаров.</h3>
             {% endif %}
 		</div>
