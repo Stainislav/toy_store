@@ -4,23 +4,35 @@ from orders.models import ProductInBasket
 from .forms import CheckoutContactForm
 from django.contrib.auth.models import User
 from .models import *
-
+from products.models import Category
 
 def basket_adding(request):
     return_dict = dict()
-    print("REQUEST: ", request)
+    
     session_key = request.session.session_key
     data = request.POST
     product_id = data.get("product_id")
     number = data.get("number")
     is_delete = data.get("is_delete")
+    name = data.get("name")
 
-
+    print("NAME: ", name)
+    #print("PRODUCT_IN_BASKET_ID: ", data.get("name")
+    print("DATA: ", data)
+    print("IS_DELETE: ", is_delete)
+    print("REQUEST: ", request)
+    print("PRODUCT_ID", product_id)
+    print("THE NUMBER: ", number)
+    
     if is_delete == 'true':
-        ProductInBasket.objects.filter(id=product_id).update(is_active=False)
+        TMP = ProductInBasket.objects.filter(id=product_id).update(is_active=False)
+        print("ProductInBasket", TMP)
     else:
+        print("ELSE")
         new_product, created = ProductInBasket.objects.get_or_create(session_key=session_key, is_active=True, product_id=product_id, defaults={'number':number})
+        print("NEW_PRODUCT: ", new_product)
         if not created:
+            print("NOT CREATED")
             new_product.number += int(number)
             new_product.save(force_update=True)
     
@@ -43,12 +55,24 @@ def basket_adding(request):
 
 
 def checkout(request):
+
+    # Categories to show.
+    boy_toys       = Category.objects.filter(parent__name="Игрушки для мальчиков")
+    stuffed_toys   = Category.objects.filter(parent__name="Мягкие игрушки")
+    girl_toys      = Category.objects.filter(parent__name="Игрушки для девочек")
+    new_toys       = Category.objects.filter(name="Новинки")
+    children_books = Category.objects.filter(name="Детские книги")
+    hellium_balls  = Category.objects.filter(name="Гелиевые шары")
+
     session_key = request.session.session_key
     products_in_basket = ProductInBasket.objects.filter(session_key=session_key, is_active=True, order__isnull=True)
     form = CheckoutContactForm(request.POST or None)
-     
+    print("PRODUCTS_IN_BASKET", products_in_basket)
+    checkout_done = False
+    
     if request.POST:
         print(request.POST)
+        checkout_done = True
         if form.is_valid():
             data = request.POST
             name = data.get("name")
@@ -72,6 +96,13 @@ def checkout(request):
             print("yes")
         else:
             print("no")
+
     return render(request, 'checkout.html', locals())
+
+def cart(request):
+
+    return render(request, 'cart.html', locals())
+
+
 
 
