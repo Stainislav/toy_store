@@ -91,7 +91,25 @@
 							</div>-->
 
 							<div class="product-btns">
-                                <form method="post" id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
+                                <div class="qty-input">
+                                        <span class="text-uppercase">Количество: </span>
+								        <input class="input" type="number" id="number">
+							    </div> 
+                                <form method="post" id="{{product.id}}" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
+                     				<button type="submit" id="submit_btn" class="primary-btn add-to-cart"
+                                         data-product_id = "{{product.id}}"
+                                         data-product_name = "{{product.name}}"
+                                         data-product_price = "{{product.price}}"
+                                         data-img_url="{{product.productimage_set}}"                                 
+                                    >
+                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
+						        </form>
+
+
+
+
+
+                                <!--<form method="post" id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
 							        <div class="qty-input">
                                         <span class="text-uppercase">Количество: </span>
 								        <input class="input" type="number" id="number">
@@ -106,7 +124,7 @@
                                     >
 
                                     <i class="fa fa-shopping-cart"></i> В корзину</button>
-						        </form>
+						        </form>-->
 
 								<!--<div class="pull-right">
 									<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>

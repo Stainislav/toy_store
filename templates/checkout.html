@@ -69,10 +69,6 @@
 									</div>
 								</div>
 							</div>-->
-
-
-
-
 						</div>
 					</div>
 
@@ -95,10 +91,9 @@
 									</tr>
 								</thead>
 								<tbody>
-
+                                   
                                     {% for product_in_basket in products_in_basket %}
-
-									<tr>
+									<tr id="{{ product_in_basket.id }}">
 										<td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
 										<td class="details">
 											<a href="#">{{product_in_basket.product.name}}</a>
@@ -106,10 +101,10 @@
 										<td class="price text-center"><strong><span class="product-price">{{product_in_basket.product.price}}</span></strong><br><del class="font-weak"><small></small></del></td>
 										<td class="qty text-center"><input class="product-in-basket-number" type="number" value="{{product_in_basket.number}}" name="product_in_basket_{{ product_in_basket.id }}"></td>
 										<td class="total text-center"><strong class="primary-color"><span class="total-product-in-basket-amount">{{product_in_basket.total_price}}</span></strong></td>
-										<td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
+										<td class="text-right"><button class="main-btn icon-btn" data-product_id = "{{ product_in_basket.id }}"><i class="fa fa-close"></i></button></td>
 									</tr>
                                     {% endfor %}
-                                    
+                                   
 
 								</tbody>
 								<tfoot>
@@ -137,7 +132,8 @@
 					</div>
 				</form>
 			</div>
-			<!-- /row -->                
+			<!-- /row -->
+            {% elif checkout_done == True %} <h3>Спасибо за Ваш заказ! Мы свяжемся с Вами в ближайшее время для уточнения деталей заказа.</h3>
             {% else %}  <h3>В вашей корзине нет товаров.</h3>
             {% endif %}
 		</div>

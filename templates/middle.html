@@ -9,24 +9,16 @@
 			<div class="home-wrap">                                
 				<!-- home slick -->
 				<div id="home-slick">
-                
+                    <!-- banner -->
                     {% block special_for_you %}
-                {% for toy_image in special_for_you_images %}
-					<!-- banner -->
+                    {% for toy_image in special_for_you_images %}
                     <a href="{% url 'product' toy_image.product.id %}">
 					<div class="banner banner-1">
-                        
-                            
-						<!--<img src= "{% static 'products/img/slider_tiger.jpg' %}" alt="">-->   
                         <img src="{{toy_image.image.url}}" alt="">
-                                             
-						
 					</div>
                     </a>
-                {% endfor %}
-                {% endblock %}
-                    
-					
+                    {% endfor %}
+                    {% endblock %}
 				</div>
 				<!-- /home slick -->
 			</div>
@@ -35,7 +27,6 @@
 		<!-- /container -->
 	</div>
 	<!-- /HOME -->
-
 
 
     <!-- section -->
@@ -64,29 +55,17 @@
                         </a>
 						<div class="product-body">
 							<h3 class="product-price">{{toy_image.product.price}} руб.</h3>
-							<!--<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>-->
 							<h2 class="product-name"><a href= "{% url 'product' toy_image.product.id %}">{{toy_image.product.name}}</a></h2>
 							<div class="product-btns">
-
-
-                                <!--<form method="post" id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
-							          
+                                <form method="post" id="{{toy_image.product.id}}" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
                      				<button type="submit" id="submit_btn" class="primary-btn add-to-cart"
-
-                                     data-product_id = "{{toy_image.product.id}}"
-                                     data-product_name = "{{toy_image.product.name}}"
-                                     data-product_price = "{{toy_image.product.price}}"
-                                     data-img_url="{{toy_image.product.productimage_set}}"
-                                 
+                                         data-product_id = "{{toy_image.product.id}}"
+                                         data-product_name = "{{toy_image.product.name}}"
+                                         data-product_price = "{{toy_image.product.price}}"
+                                         data-img_url="{{toy_image.product.productimage_set}}"                                 
                                     >
                                     <i class="fa fa-shopping-cart"></i> В корзину</button>
-						        </form>-->
+						        </form>
 							</div>
 						</div>
 					</div>
@@ -123,41 +102,22 @@
 					<div class="product product-single">
                         <a href="{% url 'product' toy_image.product.id %}">						
                             <div class="product-thumb">
-						<!--<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Быстрый просмотр</button>-->
-							<img src="{{toy_image.image.url}}" alt="">
-                       
-						</div>
+							    <img src="{{toy_image.image.url}}" alt="">
+						    </div>
                         </a>
 						<div class="product-body">
 							<h3 class="product-price">{{toy_image.product.price}} руб.</h3>
-							<!--<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>-->
 							<h2 class="product-name"><a href= "{% url 'product' toy_image.product.id %}">{{toy_image.product.name}}</a></h2>
 							<div class="product-btns">
-
-
-                                <!--<form method="post" id="form_buying_product" class="just_form" action="{% url 'basket_adding' %}"> {% csrf_token %}
-							           
+                                <form method="post" id="{{toy_image.product.id}}" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}   
                      				<button type="submit" id="submit_btn" class="primary-btn add-to-cart"
-
-                                     data-product_id = "{{toy_image.product.id}}"
-                                     data-product_name = "{{toy_image.product.name}}"
-                                     data-product_price = "{{toy_image.product.price}}"
-                                     data-img_url="{{toy_image.product.productimage_set}}"
-                                 
+                                         data-product_id = "{{toy_image.product.id}}"
+                                         data-product_name = "{{toy_image.product.name}}"
+                                         data-product_price = "{{toy_image.product.price}}"
+                                         data-img_url="{{toy_image.product.productimage_set}}"
                                     >
                                     <i class="fa fa-shopping-cart"></i> В корзину</button>
-						        </form>-->
-
-
-								<!--<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>-->
-								<!--<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> В корзину</button>-->
+						        </form>
 							</div>
 						</div>
 					</div>
@@ -194,24 +154,22 @@
 					<div class="product product-single">
 						<a href="{% url 'product' toy_image.product.id %}">
                             <div class="product-thumb">
-						<!--<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Быстрый просмотр</button>-->
-							<img src="{{toy_image.image.url}}" alt="">                       
-						</div>
+							    <img src="{{toy_image.image.url}}" alt="">                       
+						    </div>
                         </a>
 						<div class="product-body">
 							<h3 class="product-price">{{toy_image.product.price}} руб.</h3>
-							<!--<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>-->
 							<h2 class="product-name"><a href= "{% url 'product' toy_image.product.id %}">{{toy_image.product.name}}</a></h2>
 							<div class="product-btns">
-								<!--<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>-->
-								<!--<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> В корзину</button>-->
+                                <form method="post" id="{{toy_image.product.id}}" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
+                     				<button type="submit" id="submit_btn" class="primary-btn add-to-cart"
+                                         data-product_id = "{{toy_image.product.id}}"
+                                         data-product_name = "{{toy_image.product.name}}"
+                                         data-product_price = "{{toy_image.product.price}}"
+                                         data-img_url="{{toy_image.product.productimage_set}}"
+                                    >
+                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
+						        </form>
 							</div>
 						</div>
 					</div>
@@ -225,4 +183,5 @@
 		<!-- /container -->
 	</div>
 	<!-- /section -->
+
 

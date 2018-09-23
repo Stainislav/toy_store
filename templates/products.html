@@ -203,8 +203,7 @@
 					<div id="store">
 						<!-- row -->
 						<div class="row">
-							<!-- Product Single -->
-                            
+							<!-- Product Single -->  
                             {% for toy_image in images_to_show %}
 							<div class="col-md-3 col-sm-6 col-xs-6">
 								<div class="product product-single">
@@ -216,65 +215,25 @@
                                     </a>
 									<div class="product-body">
                                         <h3 class="product-price">{{toy_image.product.price}} руб.</h3>
-										<!--<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>-->
-										
-
-
-                                        <!--<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o empty"></i>
-										</div>-->
-
-
-
                                         <h2 class="product-name"><a href= "{% url 'product' toy_image.product.id %}">{{toy_image.product.name}}</a></h2>
 										<div class="product-btns">
-			                                <!--<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> В корзину</button>-->
+                                            <form method="post" id="{{toy_image.product.id}}" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
+                     				            <button type="submit" id="submit_btn" class="primary-btn add-to-cart"
+                                                    data-product_id = "{{toy_image.product.id}}"
+                                                    data-product_name = "{{toy_image.product.name}}"
+                                                    data-product_price = "{{toy_image.product.price}}"
+                                                    data-img_url="{{toy_image.product.productimage_set}}"
+                                                >
+                                                <i class="fa fa-shopping-cart"></i> В корзину</button>
+						                    </form>
 										</div>
 									</div>
 								</div>
 							</div>
                             {% endfor %}
-                            
 							<!-- /Product Single -->
 
-							
-
-
-                           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 							<div class="clearfix visible-sm visible-xs"></div>
-
-							
 						</div>
 						<!-- /row -->
 					</div>

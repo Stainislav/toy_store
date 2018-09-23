@@ -3,7 +3,7 @@
 {% block content %}
 
     {% include 'middle.html' %}
-
+    <script src="{% static 'products/js/scripts.js' %}"></script>
 {% endblock %}
 
 
