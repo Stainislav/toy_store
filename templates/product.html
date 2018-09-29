@@ -8,7 +8,6 @@
 		<div class="container">
 			<ul class="breadcrumb">
 				<li><a href="{% url 'home' %}">Главная</a></li>
-                <!--<li class="active">{{product.category.parent}}</li>-->
 				<li class="active">{{product.category}}</li>
 			</ul>
 		</div>
@@ -27,11 +26,6 @@
                    <div class="col-md-6 col-sm-6 col-xs-6">
 
 				    <div class="product product-single">
-
-					<!--<div class="col-md-6">
-						<div id="product-main-view">                            
-							<div class="product-view">-->
- 
                             <div class="product-thumb">
                                 {% for image in product.productimage_set.all %}    
 								<img src="{{image.image.url}}" alt="">
@@ -54,47 +48,17 @@
 					<div class="col-md-6">
 						<div class="product-body">
 							<div class="product-label">
-								<!--<span>New</span>
-								<span class="sale">-20%</span>-->
 							</div>
 							<h2 class="product-name">{{product.name}}</h2>
-							<h3 class="product-price">{{product.price}} руб <!--старая цена<del class="product-old-price">1000 руб</del>--></h3>
-
-							<!--<div>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o empty"></i>
-								</div>
-								<a href="#">3 Review(s) / Add Review</a>
-							</div>-->
-
-							<!--<p><strong>Наличие:</strong> </p>-->
-							<!--<p><strong>Марка:</strong> E-SHOP</p>-->
+							<h3 class="product-price">{{product.price}} руб </h3>
 							<p>{{product.description}}</p>
-							<!-- опции товара<div class="product-options">
-								<ul class="size-option">
-									<li><span class="text-uppercase">Size:</span></li>
-									<li class="active"><a href="#">S</a></li>
-									<li><a href="#">XL</a></li>
-									<li><a href="#">SL</a></li>
-								</ul>
-								<ul class="color-option">
-									<li><span class="text-uppercase">Color:</span></li>
-									<li class="active"><a href="#" style="background-color:#475984;"></a></li>
-									<li><a href="#" style="background-color:#8A2454;"></a></li>
-									<li><a href="#" style="background-color:#BF6989;"></a></li>
-									<li><a href="#" style="background-color:#9A54D8;"></a></li>
-								</ul>
-							</div>-->
-
 							<div class="product-btns">
                                 <div class="qty-input">
                                         <span class="text-uppercase">Количество: </span>
 								        <input class="input" type="number" id="number">
 							    </div> 
+                                <p>
+                                </p>
                                 <form method="post" id="{{product.id}}" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
                      				<button type="submit" id="submit_btn" class="primary-btn add-to-cart"
                                          data-product_id = "{{product.id}}"
@@ -104,34 +68,6 @@
                                     >
                                     <i class="fa fa-shopping-cart"></i> В корзину</button>
 						        </form>
-
-
-
-
-
-                                <!--<form method="post" id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
-							        <div class="qty-input">
-                                        <span class="text-uppercase">Количество: </span>
-								        <input class="input" type="number" id="number">
-							        </div>   
-                     				<button type="submit" id="submit_btn" class="primary-btn add-to-cart"
-
-                                     data-product_id = "{{product.id}}"
-                                     data-product_name = "{{product.name}}"
-                                     data-product_price = "{{product.price}}"
-                                     data-img_url="{{product.productimage_set}}"
-                                    
-                                    >
-
-                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
-						        </form>-->
-
-								<!--<div class="pull-right">
-									<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-									<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-									<button class="main-btn icon-btn"><i class="fa fa-share-alt"></i></button>
-								</div> -->
-
 							</div>
 						</div>
 					</div>
@@ -139,8 +75,6 @@
 						<div class="product-tab">
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">Описание</a></li>
-								<!--<li><a data-toggle="tab" href="#tab1">Подробно</a></li>
-								<li><a data-toggle="tab" href="#tab2">Отзывы</a></li>-->
 							</ul>
 							<div class="tab-content">
 								<div id="tab1" class="tab-pane fade in active">
@@ -308,13 +242,6 @@
 				</div>
                 {% endfor %}
 				<!-- /Product Single -->
-
-
-
-
-
-
-
 			</div>
 			<!-- /row -->
 		</div>
