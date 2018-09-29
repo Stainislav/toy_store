@@ -25,7 +25,7 @@ SECRET_KEY = 'ljydnws76smmxuabe(wcc#l6u+vov_*!+34@mu2^&*b!2@&+qe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['toystore.pythonanywhere.com', 'localhost']
 
 
 REST_FRAMEWORK = {
