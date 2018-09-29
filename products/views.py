@@ -14,11 +14,13 @@ def home(request):
     new_toys       = Category.objects.filter(name="Новинки")
     children_books = Category.objects.filter(name="Детские книги")
     hellium_balls  = Category.objects.filter(name="Гелиевые шары")
+    latex_balls    = Category.objects.filter(name="Латексные шары")
+    foil_balls     = Category.objects.filter(name="Фольгированные шары")
 
     # Images to show.
-    stuffed_toys_images = product_images.filter(product__category__parent__name="Мягкие игрушки")
-    boy_toys_images     = product_images.filter(product__category__parent__name="Игрушки для мальчиков")
-    girl_toys_images    = product_images.filter(product__category__parent__name="Игрушки для девочек")
+    stuffed_toys_images       = product_images.filter(product__category__parent__name="Мягкие игрушки")
+    boy_toys_images           = product_images.filter(product__category__parent__name="Игрушки для мальчиков")
+    girl_toys_images          = product_images.filter(product__category__parent__name="Игрушки для девочек")
     special_for_you_images    = product_images.filter(product__special_for_you=True)    
 
     return render(request, "home.html", locals())
@@ -33,6 +35,8 @@ def products(request, category_id):
     new_toys       = Category.objects.filter(name="Новинки")
     children_books = Category.objects.filter(name="Детские книги")
     hellium_balls  = Category.objects.filter(name="Гелиевые шары")
+    latex_balls    = Category.objects.filter(name="Латексные шары")
+    foil_balls     = Category.objects.filter(name="Фольгированные шары")
 
     # Get product by ID.   
     category = Category.objects.get(id=category_id)
@@ -40,7 +44,7 @@ def products(request, category_id):
     # Choose images for active products only.
     products_images = ProductImage.objects.filter(is_active=True, is_main=True)
 
-    # Images in the down of the product page.
+    # Images at the down of a product page.
     images_to_show = products_images.filter(product__category__id=category_id)
    
     return render(request, "products.html", locals())
@@ -55,6 +59,8 @@ def product(request, product_id):
     new_toys       = Category.objects.filter(name="Новинки")
     children_books = Category.objects.filter(name="Детские книги")
     hellium_balls  = Category.objects.filter(name="Гелиевые шары")
+    latex_balls    = Category.objects.filter(name="Латексные шары")
+    foil_balls     = Category.objects.filter(name="Фольгированные шары")
 
     product = Product.objects.get(id=product_id)
 
@@ -63,8 +69,5 @@ def product(request, product_id):
     if not session_key:
         request.session.cycle_key()
 
-
     return render(request, 'product.html', locals())
-
-
 

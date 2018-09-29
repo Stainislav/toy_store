@@ -10,7 +10,8 @@ class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 0
 
-# Категория.
+
+# Category.
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_filter = ['id', 'name']
@@ -20,7 +21,7 @@ class CategoryAdmin(admin.ModelAdmin):
         model = Category
 
 
-# Товар.
+# Product.
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'description']
     list_filter = ['id', 'name', 'description', 'category']
@@ -32,7 +33,7 @@ class ProductAdmin(admin.ModelAdmin):
         model = Product
 
 
-# Фотографии товаров.
+# Product photos.
 class ProductImageAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_filter = ['id', 'name']
@@ -40,6 +41,7 @@ class ProductImageAdmin(admin.ModelAdmin):
 
     class Meta:
         model = ProductImage
+
 
 admin.site.register(ProductImage, ProductImageAdmin)
 admin.site.register(Category, CategoryAdmin)

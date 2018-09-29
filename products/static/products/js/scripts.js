@@ -29,7 +29,6 @@ $(document).ready(function() {
              data: data,
              cache: true,
              success: function (data) {
-                 //console.log("DATA: ", data);
                  if (data.products_total_number || data.products_total_number == 0){
                     $('#basket_total_number').text(data.products_total_number);
                     $('.shopping-cart-list').html("");
@@ -106,8 +105,6 @@ $(document).ready(function() {
             current_tr.find('.total-product-in-basket-amount').text(total_amount);
             calculatingBasketAmount();
          });
-         
-         //calculatingBasketAmount();
 
           // Delete a product from checkout page.
           $(document).on('click', '.icon-btn', function(e){
