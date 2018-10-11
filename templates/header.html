@@ -50,15 +50,17 @@
 					</div>
 					<!-- /Logo -->
 
-					<!-- Search
+					<!-- Search -->
 					<div class="header-search">
-						<form>
-							<input class="input search-input" type="text" placeholder="Поиск">
-							<select class="input search-categories">
+						<form method="post" action="{% url 'search' %}"> {% csrf_token %}
+							<input class="input search-input" name='product_name'  type="text" placeholder="Поиск"> 
+							
+                            <!--<select class="input search-categories">
 								<option value="0">Все категории</option>
 								<option value="1">Игрушки для мальчиков</option>
 								<option value="1">Игрушки для девочек</option>
-							</select>
+							</select>-->
+
 							<button class="search-btn"><i class="fa fa-search"></i></button>
 						</form>
 					</div>
