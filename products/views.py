@@ -71,3 +71,40 @@ def product(request, product_id):
 
     return render(request, 'product.html', locals())
 
+
+def upper_first_char(word):
+    # Get the first chararcter of a word.
+    first_word = word[0].upper()
+ 
+    word_list = []
+
+    # Copy word to a list.
+    for i in word:
+        word_list.append(i)
+
+    # Delete first character of a word.
+    word_list.pop(0)
+
+    word_string = ''
+    
+    # Copy list to a word string.
+    for i in word_list:
+        word_string = word_string + i
+
+    # Add a first upper character to the whole other string.
+    word = first_word + word_string
+
+    return word
+
+def search(request):
+    
+    data = request.POST
+    product_name  = data.get("product_name")
+
+    product_name = upper_first_char(product_name)   
+
+    products_images = ProductImage.objects.filter(is_active=True, is_main=True)    
+    images_to_show = products_images.filter(product__name__icontains=product_name)
+
+    return render(request, "products.html", locals())
+
