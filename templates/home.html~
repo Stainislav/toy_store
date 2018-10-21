@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
-
-{% block content %}
-
-     {% load static %}   
-
+{% load static %}
 
 	<!-- HOME -->
 	<div id="home">
@@ -48,7 +44,7 @@
 				<!-- section title -->
 
 				<!-- Product Single -->
-                {% block stuffed_toys                                                                                                                                                       	 %}
+                {% block stuffed_toys %}
                 {% for toy_image in  stuffed_toys_images %}
 				<div class="col-md-3 col-sm-6 col-xs-6">
 				    <div class="product product-single">
@@ -187,9 +183,4 @@
 		<!-- /container -->
 	</div>
 	<!-- /section -->
-
-
-    
-{% endblock %}
-
 
