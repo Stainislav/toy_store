@@ -64,6 +64,14 @@ def product(request, product_id):
 
     product = Product.objects.get(id=product_id)
 
+    # Choose images for active products only.
+    products_images = ProductImage.objects.filter(is_active=True, is_main=True)
+
+    # Images at the down of a product page.
+    images_to_show = products_images.filter(product__category__name=product.category)
+    
+    print("Product category: ", product.category)
+
     session_key = request.session.session_key
 
     if not session_key:
