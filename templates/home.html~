@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block content %}
+
 	<!-- HOME -->
 	<div id="home">
 		<!-- container -->
@@ -64,7 +66,7 @@
                                          data-product_price = "{{toy_image.product.price}}"
                                          data-img_url="{{toy_image.product.productimage_set}}"                                 
                                     >
-                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
+                                    <i class="fa fa-shopping-cart"></i> Добавить в корзину</button>
 						        </form>
 							</div>
 						</div>
@@ -116,7 +118,7 @@
                                          data-product_price = "{{toy_image.product.price}}"
                                          data-img_url="{{toy_image.product.productimage_set}}"
                                     >
-                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
+                                    <i class="fa fa-shopping-cart"></i> Добавить в корзину</button>
 						        </form>
 							</div>
 						</div>
@@ -168,7 +170,7 @@
                                          data-product_price = "{{toy_image.product.price}}"
                                          data-img_url="{{toy_image.product.productimage_set}}"
                                     >
-                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
+                                    <i class="fa fa-shopping-cart"></i> Добавить в корзину</button>
 						        </form>
 							</div>
 						</div>
@@ -183,4 +185,9 @@
 		<!-- /container -->
 	</div>
 	<!-- /section -->
+
+
+    
+{% endblock %}
+
 
