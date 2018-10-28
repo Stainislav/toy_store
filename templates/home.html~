@@ -1,7 +1,30 @@
+
+
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
+
+<!--Make menu open when the home page is downloaded.-->
+<style>
+
+.category-nav.show-on-click .category-list {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translate(0px, 15px);
+  -ms-transform: translate(0px, 15px);
+  transform: translate(0px, 15px);
+}
+
+.category-nav.show-on-click .category-list.open {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+
+</style>
 
 	<!-- HOME -->
 	<div id="home">
@@ -66,7 +89,7 @@
                                          data-product_price = "{{toy_image.product.price}}"
                                          data-img_url="{{toy_image.product.productimage_set}}"                                 
                                     >
-                                    <i class="fa fa-shopping-cart"></i> Добавить в корзину</button>
+                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
 						        </form>
 							</div>
 						</div>
@@ -118,7 +141,7 @@
                                          data-product_price = "{{toy_image.product.price}}"
                                          data-img_url="{{toy_image.product.productimage_set}}"
                                     >
-                                    <i class="fa fa-shopping-cart"></i> Добавить в корзину</button>
+                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
 						        </form>
 							</div>
 						</div>
@@ -170,7 +193,7 @@
                                          data-product_price = "{{toy_image.product.price}}"
                                          data-img_url="{{toy_image.product.productimage_set}}"
                                     >
-                                    <i class="fa fa-shopping-cart"></i> Добавить в корзину</button>
+                                    <i class="fa fa-shopping-cart"></i> В корзину</button>
 						        </form>
 							</div>
 						</div>

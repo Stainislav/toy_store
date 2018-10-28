@@ -1,7 +1,24 @@
+
+
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
+
+<!--Make menu open when the home page is downloaded.-->
+<style>
+
+.category-nav.show-on-click .category-list {
+  opacity: 1;
+  visibility: visible;
+}
+
+.category-nav.show-on-click .category-list.open {
+  opacity: 0;
+  visibility: hidden;
+}
+
+</style>
 
 	<!-- HOME -->
 	<div id="home">
