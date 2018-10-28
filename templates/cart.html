@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="{% url 'home' %}">Главная</a></li>
+                <li class="active">Оформление заказа</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+                <form method="post" id="checkout-form" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
+                {% if products_in_basket %}				
+					<div class="col-md-12">
+						<div class="order-summary clearfix">
+							<div class="section-title">
+								<h3 class="title"> Товары в корзине</h3>
+							</div>
+							<table class="shopping-cart-table table">
+								<thead>
+									<tr>
+										<th>Товар</th>
+										<th></th>
+										<th class="text-center">Цена</th>
+										<th class="text-center">Количество</th>
+										<th class="text-center">Сумма</th>
+										<th class="text-right"></th>
+									</tr>
+								</thead>
+								<tbody>
+                                   
+                                    {% for product_in_basket in products_in_basket %}
+									<tr id="{{ product_in_basket.id }}">
+										<td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
+										<td class="details">
+											<a href="#">{{product_in_basket.product.name}}</a>
+										</td>
+										<td class="price text-center"><strong><span class="product-price">{{product_in_basket.product.price}}</span></strong><br><del class="font-weak"><small></small></del></td>
+										<td class="qty text-center"><input class="product-in-basket-number" type="number" value="{{product_in_basket.number}}" name="product_in_basket_{{ product_in_basket.id }}"></td>
+										<td class="total text-center"><strong class="primary-color"><span class="total-product-in-basket-amount">{{product_in_basket.total_price}}</span></strong></td>
+										<td class="text-right"><button class="main-btn icon-btn" data-product_id = "{{ product_in_basket.id }}"><i class="fa fa-close"></i></button></td>
+									</tr>
+                                    {% endfor %}
+                                   
+
+								</tbody>
+								<tfoot>
+									<tr>
+										<th class="empty" colspan="3"></th>
+										<th>Промежуточный итог</th>
+										<th colspan="2" class="sub-total" id="sub-total_amount"></th>
+									</tr>
+									<tr>
+										<th class="empty" colspan="3"></th>
+										<th>Доставка</th>
+										<td colspan="2" id="shipping"></td>
+									</tr>
+									<tr>
+										<th class="empty" colspan="3"></th>
+										<th>Итоговая стоимость</th>
+										<th id="total_order_amount" colspan="2" class="total"></th>
+									</tr>
+								</tfoot>
+							</table>
+							<div class="pull-right">
+								<button class="primary-btn"><a href= "{% url 'checkout' %}">Оформить заказ</a></button>
+							</div>
+						</div>
+					</div>
+                    </form>
+			</div>
+			<!-- /row -->                
+            {% else %}  <h3>В вашей корзине нет товаров.</h3>
+            {% endif %}
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+	
+
+</body>
+
+</html>
+{% endblock%}
+

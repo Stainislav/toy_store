@@ -6,6 +6,7 @@ def home(request):
 
     # Choose images for active products only.
     product_images = ProductImage.objects.filter(is_active=True, is_main=True)
+    categories     = Category.objects.all()
 
     # Categories to show.
     boy_toys       = Category.objects.filter(parent__name="Игрушки для мальчиков")
@@ -108,11 +109,17 @@ def search(request):
     
     data = request.POST
     product_name  = data.get("product_name")
+    category_id = data.get("dropdown")    
 
     product_name = upper_first_char(product_name)   
 
-    products_images = ProductImage.objects.filter(is_active=True, is_main=True)    
-    images_to_show = products_images.filter(product__name__icontains=product_name)
+    products_images = ProductImage.objects.filter(is_active=True, is_main=True)
 
-    return render(request, "products.html", locals())
+    if int(category_id) != 0:
+        image_category = products_images.filter(product__category__id = category_id)
+        images_to_show = image_category.filter(product__name__icontains=product_name)
+        return render(request, "products.html", locals())
+    else:
+        images_to_show = products_images.filter(product__name__icontains=product_name)
+        return render(request, "products.html", locals())
 
