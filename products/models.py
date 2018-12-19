@@ -5,6 +5,7 @@ class Category(models.Model):
 
     name   = models.CharField(max_length=50)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='child')
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

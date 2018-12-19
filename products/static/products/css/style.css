@@ -667,6 +667,9 @@ textarea.input {
   -ms-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
+dropdown.side-dropdown {display: none;}
+
+.dropdown:hover dropdown.side-dropdown {display: block;}
 
 
 /*----------------------------*\

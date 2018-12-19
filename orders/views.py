@@ -46,16 +46,6 @@ def basket_adding(request):
 
 def checkout(request):
 
-    # Categories to show.
-    boy_toys       = Category.objects.filter(parent__name="Игрушки для мальчиков")
-    stuffed_toys   = Category.objects.filter(parent__name="Мягкие игрушки")
-    girl_toys      = Category.objects.filter(parent__name="Игрушки для девочек")
-    new_toys       = Category.objects.filter(name="Новинки")
-    children_books = Category.objects.filter(name="Детские книги")
-    hellium_balls  = Category.objects.filter(name="Гелиевые шары")
-    latex_balls    = Category.objects.filter(name="Латексные шары")
-    foil_balls     = Category.objects.filter(name="Фольгированные шары")
-
     session_key        = request.session.session_key
     products_in_basket = ProductInBasket.objects.filter(session_key=session_key, is_active=True, order__isnull=True)
     form               = CheckoutContactForm(request.POST or None)
@@ -87,16 +77,6 @@ def checkout(request):
 
 
 def cart(request):
-
-    # Categories to show.
-    boy_toys       = Category.objects.filter(parent__name="Игрушки для мальчиков")
-    stuffed_toys   = Category.objects.filter(parent__name="Мягкие игрушки")
-    girl_toys      = Category.objects.filter(parent__name="Игрушки для девочек")
-    new_toys       = Category.objects.filter(name="Новинки")
-    children_books = Category.objects.filter(name="Детские книги")
-    hellium_balls  = Category.objects.filter(name="Гелиевые шары")
-    latex_balls    = Category.objects.filter(name="Латексные шары")
-    foil_balls     = Category.objects.filter(name="Фольгированные шары")
 
     return render(request, 'cart.html', locals())
 

@@ -8,24 +8,28 @@
 		<div class="container">
 			<div id="responsive-nav">
 
+
 				<!-- category nav -->
 				<div class="category-nav show-on-click">
 					<a href="#"><span class="category-header">Категории<i class="fa fa-list"></i></span></a>
                     <ul class="category-list">
- 
+
+                        {% block parent_categories %}   
+                        {% for category in parent_categories %}
+
 						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">Мягкие игрушки<i class="fa fa-angle-right"></i></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">{{category}}<i class="fa fa-angle-right"></i></a>
                         <div class="custom-menu">
 								<div class="row">
 									<div class="col-md-4">
 										<ul class="list-links">
 											<li>
   												<h3 class="list-links-title">Категории</h3></li>
-                                                   {% block stuffed_toys %}   
-                                                       {% for toy in stuffed_toys %}
-                                                           <li><a href="{% url 'products' toy.id %}">{{toy}}</a></li>
-                                                       {% endfor %}
-                                                    {% endblock %}
+
+                                                {% for item in category.child.all %} 
+                                                    <li><a href="{% url 'products' item.id %}">{{item}}</a></li>
+                                                {% endfor %}   
+     
 										</ul>
 										<hr class="hidden-md hidden-lg">
 									</div>
@@ -44,69 +48,9 @@
 							</div>
 						</li>
 
-                        <li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">Игрушки для мальчиков<i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Категории</h3></li>
-                                                {% block boy_toys %}   
-                                                {% for toy in boy_toys %}
-                                                    <li><a href="{% url 'products' toy.id %}">{{toy}}</a></li>
-                                                {% endfor %}
-                                            {% endblock %}
-										</ul>	
-									</div>
-							</div>
-						</li>
+                    {% endfor %}
+                    {% endblock %}
 
-                        <li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">Игрушки для девочек<i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Категории</h3></li>
-                                                {% block girl_toys %}   
-                                                {% for toy in girl_toys %}
-                                                    <li><a href="{% url 'products' toy.id %}">{{toy}}</a></li>
-                                                {% endfor %}
-                                            {% endblock %}
-										</ul>
-                                    </div>
-							    </div>
-							</div>
-						</li>
-                      
-                        <li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">Гелиевые шары<i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-                                    	<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Категории</h3></li>
-                                                {% block latex_balls %}   
-                                                        {% for ball in latex_balls %}   
-                                                        <li><a href="{% url 'products' ball.id %}">{{ball}}</a>
-                                                        {% endfor %}
-                                                {% endblock %}
-										</ul>
-                                    </div>
-                                    <div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Категории</h3></li>
-                                                {% block foil_balls %}   
-                                                        {% for ball in foil_balls %}   
-                                                        <li><a href="{% url 'products' ball.id %}">{{ball}}</a>
-                                                        {% endfor %}
-                                                {% endblock %}
-										</ul>
-                                    </div>
-							    </div>
-							</div>
-						</li>
         			</ul>
 				</div>
 				<!-- /category nav -->
@@ -121,11 +65,15 @@
                         <li><a href="{% url 'adress' %}">Адреса магазинов</a></li>
                         <li><a href="{% url 'refund' %}">Возврат</a></li>
 					</ul>
+
 				</div>
 				<!-- menu nav -->
+
 			</div>
+
 		</div>
 		<!-- /container -->
+
 	</div>
 	<!-- /NAVIGATION -->
 
